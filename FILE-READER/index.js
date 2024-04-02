@@ -57,12 +57,20 @@ async function asyncPegarArquivo(caminhoDoArquivo) {
     const encoding = 'utf-8';
     const texto = await fs.promises.readFile(caminhoDoArquivo, encoding);
 
+    // ---> ERRO - motivo: chalk:
     //console.log(chalk.green(texto));
 
-    // teste = extrairLinks(texto);
-    // console.log(chalk.red(teste));
-
+    // ---> Apresentar SEM o CHALK:
     console.log(extrairLinks(texto));
+
+    // ---> Forma de usar o CHALK SEM ERRO:
+    const objeto = extrairLinks(texto);
+
+    objeto.forEach((linha) => {
+      for (const [key, value] of Object.entries(linha)) {
+        console.log(`${chalk.blue(key)}: ${chalk.bgYellow.blue(value)}`);
+      }
+    });
   } catch (error) {
     tratarErro(error);
   }

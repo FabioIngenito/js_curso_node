@@ -33,3 +33,18 @@ ARQUIVO "settings.json":
 }
 
 ARQUIVO EXTRA: ".prettierrc"
+
+--------------------------------------------------------
+Git Commit Guidelines
+Type
+
+feat: um novo recurso
+fix: uma correção de bug
+docs: Apenas a documentação muda
+style: alterações que não afetam o significado do código (espaço em branco, formatação, falta de ponto e vírgula, etc.)
+refactor: uma alteração de código que não corrige um bug nem adiciona um recurso
+perf: uma alteração de código que melhora o desempenho (performance)
+test: Adicionando testes ausentes
+chore: Mudanças no processo de construção ou ferramentas e bibliotecas auxiliares, como geração de documentação
+
+https://ec.europa.eu/component-library/v1.15.0/eu/docs/conventions/git/
