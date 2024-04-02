@@ -1,0 +1,35 @@
+MUDAR O IDIOMA DENTRO DO VSCODE:
+
+Para mudar o idioma do Visual Studio Code para português do Brasil, você pode seguir as seguintes instruções:
+Abra o Command Palette (Paleta de Comandos). Clique View -> Command Palette. Ou pela hotkey: Ctrl+Shift+P no Windows; CMD+P no macOS.
+Digite Configure Display Language na caixa de texto.
+Escolha essa opção com um clique ou aperte ENTER.
+Na caixa de texto Select Display Language, digite "Português" e confirme a instalação pressionando Enter.
+Alternativamente, você pode mudar o idioma do VS Code explicitamente usando o comando Configure Display Language3.
+
+--------------------------------------------------------
+
+PRETTIER:
+https://dev.to/alanfabricio/adicionando-o-prettier-ao-seu-projeto-javascripttypescript-226g
+
+ARQUIVO "settings.json":
+{
+  "liveServer.settings.donotShowInfoMsg": true,
+  "files.autoSave": "onFocusChange",
+  "workbench.iconTheme": "vscode-icons",
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "always",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false
+  }
+}
+
+ARQUIVO EXTRA: ".prettierrc"
