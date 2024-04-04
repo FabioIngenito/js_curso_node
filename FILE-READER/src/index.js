@@ -5,10 +5,11 @@ function extrairLinks(texto) {
   const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
   const capturas = [...texto.matchAll(regex)];
   const resultados = capturas.map((captura) => ({
-    [captura[0]]: captura[1],
+    [captura[1]]: captura[2],
   }));
 
-  return resultados;
+  //return resultados;
+  return resultados.length !== 0 ? resultados : 'Não há links no arquivo';
 }
 
 // OBS.: Se tiver uma "extensão" ligada (exemplo: "Origamid Next"), influencia a cor do Chalk. SOMENTE DESLIGUE A EXTENSÃO, não precisa desinstalar.
@@ -76,7 +77,20 @@ async function asyncPegarArquivo(caminhoDoArquivo) {
   }
 }
 
-asyncPegarArquivo('./arquivos/texto.md');
+// asyncPegarArquivo('./arquivos/texto.md');
 
 // FORÇAR UM ERRO:
 // asyncPegarArquivo('./arquivos/');
+
+export default async function PegarArquivo2(caminhoDoArquivo) {
+  try {
+    const encoding = 'utf-8';
+    const texto = await fs.promises.readFile(caminhoDoArquivo, encoding);
+
+    //console.log(extrairLinks(texto));
+
+    return extrairLinks(texto);
+  } catch (error) {
+    tratarErro(error);
+  }
+}
