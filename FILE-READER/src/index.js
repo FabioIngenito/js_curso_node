@@ -9,7 +9,10 @@ function extrairLinks(texto) {
   }));
 
   //return resultados;
-  return resultados.length !== 0 ? resultados : 'Não há links no arquivo';
+  //return resultados.length !== 0 ? resultados : 'NÃO há links no arquivo';
+  return resultados.length !== 0
+    ? resultados
+    : chalk.blue(`${chalk.red('NÃO')} há links no arquivo`);
 }
 
 // OBS.: Se tiver uma "extensão" ligada (exemplo: "Origamid Next"), influencia a cor do Chalk. SOMENTE DESLIGUE A EXTENSÃO, não precisa desinstalar.

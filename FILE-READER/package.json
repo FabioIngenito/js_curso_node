@@ -6,7 +6,12 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier-format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,json}' --config ./.prettierrc"
+    "prettier-format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,json}' --config ./.prettierrc",
+    "cli": "node ./src/cli.js ./arquivos/texto.md",
+    "cli:valida": "node ./src/cli.js ./arquivos/texto.md --valida",
+    "cli2": "node ./src/cli.js ./arquivos/texto2.md",
+    "cli3": "node ./src/cli.js \"./arquivos/texto 3.md\"",
+    "cliDir": "node ./src/cli.js ./arquivos/"
   },
   "author": "",
   "license": "ISC",
