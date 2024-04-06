@@ -1,0 +1,88 @@
+Explicação "PINO"
+
+===============================================
+pino
+8.19.0 • Public • Published 2 months ago
+
+Registrador Node.js de sobrecarga muito baixa.
+Log de Node.js leve.
+
+* Install
+npm i pino
+npm install pino
+
+Dependencies (11)
+
+https://www.npmjs.com/package/pino
+
+===============================================
+PS> npm install pino
+
+added 23 packages, and audited 26 packages in 2s
+
+6 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+===============================================
+* SANDBOX
+
+https://codesandbox.io/examples/package/pino
+
+===============================================
+* LINKS:
+
+-----------------------------------------------
+- NPM
+
+https://www.npmjs.com/package/pino
+
+-----------------------------------------------
+- GitHub
+
+https://github.com/pinojs/pino
+
+-----------------------------------------------
+- A Complete Guide to Pino Logging in Node.js
+UPDATED ON DECEMBER 6, 2023
+
+https://betterstack.com/community/guides/logging/how-to-install-setup-and-use-pino-to-log-node-js-applications/
+
+-----------------------------------------------
+Logging with Pino and AsyncLocalStorage in Node.js
+Feb 9, 2021 ⋅ 6 min read
+Maxim Orlov
+
+https://blog.logrocket.com/logging-with-pino-and-asynclocalstorage-in-node-js/
+
+-----------------------------------------------
+Guardar os LOGS na nuvem integrado com o PINO:
+
+https://betterstack.com/
+
+===============================================
+* Add-ins (Extensions)
+
+-----------------------------------------------
+pino-pretty
+
+https://github.com/pinojs/pino-pretty
+
+-----------------------------------------------
+fastify
+
+https://github.com/fastify/fastify
+
+===============================================
+* Video:
+
+-----------------------------------------------
+Pino JS - Logging in JavaScript / Node.js applications
+28 de nov. de 2023
+Better Stack
+https://youtu.be/fluDEkA1h6w?si=TaxjWLKbqSWyVtdq
+
+-----------------------------------------------
+
+===============================================
