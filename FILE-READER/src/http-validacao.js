@@ -2,19 +2,40 @@ function extrairLinks(arrLinks) {
   return arrLinks.map((objetoLink) => Object.values(objetoLink).join());
 }
 
-async function verificarStatus(listaURLs) {
-  return listaURLs.map(async (url) => {
-    const response = await fetch(url);
-    return response.status;
-  });
+function manejarErros(erro) {
+  //console.log(`${erro.code}`);
+  //console.log(`${erro.cause.code}`);
+
+  if (erro.cause.code === 'ENOTFOUND') {
+    return 'Link NÃO encontrado';
+  } else {
+    return 'Ocorreu um erro';
+  }
 }
 
-export default function listaValidada(listaDeLinks) {
-  const links = extrairLinks(listaDeLinks);
-  const status = verificarStatus(links);
-  console.log(status);
+async function verificarStatus(listaURLs) {
+  const arrStatus = await Promise.all(
+    listaURLs.map(async (url) => {
+      try {
+        const response = await fetch(url);
+        return response.status;
+      } catch (erro) {
+        return manejarErros(erro);
+      }
+    }),
+  );
 
-  return status;
+  return arrStatus;
+}
+
+export default async function listaValidada(listaDeLinks) {
+  const links = extrairLinks(listaDeLinks);
+  const status = await verificarStatus(links);
+
+  return listaDeLinks.map((objeto, indice) => ({
+    ...objeto,
+    status: status[indice],
+  }));
 }
 
 const res = await fetch('https://nodejs.org/api/documentation.json');

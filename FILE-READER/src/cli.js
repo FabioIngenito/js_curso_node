@@ -14,7 +14,7 @@ const caminho = process.argv;
 
 // console.log(caminho[2]);
 
-function imprimirLista(valida, resultado, identificador = '') {
+async function imprimirLista(valida, resultado, identificador = '') {
   //Observação: Se você colocar o "resultado" dentro de um "chalk" vai apresentar erro.
 
   console.log('-----------------------------------------------');
@@ -24,7 +24,7 @@ function imprimirLista(valida, resultado, identificador = '') {
     console.log(
       chalk.yellow('* Lista validada: '),
       chalk.black.bgGreen(identificador),
-      listaValidada(resultado),
+      await listaValidada(resultado),
     );
   } else {
     console.log(
