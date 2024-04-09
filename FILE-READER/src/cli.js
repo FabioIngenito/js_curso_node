@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+import listaValidada from './http-validacao.js';
 import fs from 'fs';
 import PegarArquivo2 from './index.js';
 
@@ -13,13 +14,25 @@ const caminho = process.argv;
 
 // console.log(caminho[2]);
 
-function imprimirLista(resultado, identificador = '') {
+function imprimirLista(valida, resultado, identificador = '') {
   //Observação: Se você colocar o "resultado" dentro de um "chalk" vai apresentar erro.
-  console.log(
-    chalk.yellow('* Lista de links: '),
-    chalk.black.bgGreen(identificador),
-    resultado,
-  );
+
+  console.log('-----------------------------------------------');
+  //console.log(valida);
+
+  if (valida) {
+    console.log(
+      chalk.yellow('* Lista validada: '),
+      chalk.black.bgGreen(identificador),
+      listaValidada(resultado),
+    );
+  } else {
+    console.log(
+      chalk.yellow('* Lista de links: '),
+      chalk.black.bgGreen(identificador),
+      resultado,
+    );
+  }
 }
 
 async function processarTexto(caminho) {
@@ -38,9 +51,9 @@ async function processarTexto(caminho) {
 
 async function processarTexto2(argumentos) {
   const caminho = argumentos[2];
-  const valida = argumentos[3];
+  const valida = argumentos[3] === '--valida';
 
-  console.log(valida);
+  //console.log(valida);
 
   try {
     fs.lstatSync(caminho);
@@ -58,7 +71,7 @@ async function processarTexto2(argumentos) {
   if (fs.lstatSync(caminho).isFile()) {
     const resultado = await PegarArquivo2(argumentos[2]);
 
-    imprimirLista(resultado);
+    imprimirLista(valida, resultado);
   } else if (fs.lstatSync(caminho).isDirectory(caminho)) {
     const arquivos = await fs.promises.readdir(caminho);
     console.log(chalk.blue(`Tem estes arquivos na pasta: ${arquivos}`));
@@ -66,7 +79,7 @@ async function processarTexto2(argumentos) {
     arquivos.forEach(async (nomeDoArquivo) => {
       const lista = await PegarArquivo2(`${caminho}/${nomeDoArquivo}`);
 
-      imprimirLista(lista, nomeDoArquivo);
+      imprimirLista(valida, lista, nomeDoArquivo);
     });
   }
 }

@@ -1,7 +1,6 @@
 import chalk from 'chalk';
 import fs from 'fs';
 import PegarArquivo2 from './index.js';
-import pino from 'pino';
 import { logger } from './logger.js';
 
 const caminho = process.argv;
