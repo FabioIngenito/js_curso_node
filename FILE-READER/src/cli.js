@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import listaValidada from './http-validacao.js';
+import listaValidada from './http-validacao2.js';
 import fs from 'fs';
 import PegarArquivo2 from './index.js';
 
